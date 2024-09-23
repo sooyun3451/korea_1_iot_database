@@ -26,22 +26,22 @@ SHOW DATABASES;
 
 -- 테이블 --
 # 1. 테이블 생성 (create table)
-create database if not exists example;
-use example;
+CREATE DATABASE IF NOT EXISTS example;
+USE example;
 
 # 테이블 생성 시 데이터베이스명이 필수는 X (오류방지를 위해 권장)
-create table if not exists students ( 
-	student_id int primary key, 
-    name varchar(100) not null,
-    age int not null,
-    major varchar(100)
+CREATE TABLE IF NOT EXISTS students ( 
+	student_id INT PRIMARY KEY, 
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    major VARCHAR(100)
 );
 
 # 2. 테이블의 구조 조회 (describe, decs)
 # 테이블 구조: 정의된 컬럼, 데이터 타입, 키 정보(제약조건) 등을 조회 가능 
 # 기본 형태 
 # describe 테이블명;
-desc students;
+DESC students;
 
 # field: 각 컬럼의 이름, type: 각 컬럼의 데이터 타입, Null: Null 허용 여부
 # Key: 각 컬럼의 제약사항(키), Default: 기본값 지정, Extra: 제약사항-추가옵션 
@@ -54,30 +54,30 @@ desc students;
 # - 컬럼 - 
 # a) 컬럼 추가 add column 
 # alter table 테이블명 add (column) 컬럼명 데이터타입 기타사항; 
-alter table `students`
-add email varchar(255);
+ALTER TABLE `students`
+ADD email VARCHAR(255);
 
-desc students;
+DESC students;
 
 # b) 컬럼 수정 modify (column)
 # alter table 테이블명 modify (column) 컴럼명 새로운컬럼_데이터타입;
-alter table students
-modify email varchar(100);
+ALTER TABLE students
+MODIFY email VARCHAR(100);
 
-desc students;
+DESC students;
 
 # c) 컬럼 삭제 drop (column)
 # alter table 테이블명 drop 컬럼명;
-alter table students
-drop email;
+ALTER TABLE students
+DROP email;
 
-desc students;
+DESC students;
 
 # cf) if exists(존재하는 경우) / if not exists(존재하지 않는 경우)
 # : 선택적 키워드, 테이블이 존재하는 경우에만 삭제를 수행 
 # > 존재할 때만 삭제하기 때문에 오류 X
-drop table if exists `lectures`;
-drop table `students`;
+DROP TABLE IF EXISTS `lectures`;
+DROP TABLE `students`;
 
 # cf) 데이터베이스와 테이블을 동시 지정 
 # : 테이블의 위치를 명확하게 전달하게 위해 .기호를 사용하여 경로 지정을 권장 
