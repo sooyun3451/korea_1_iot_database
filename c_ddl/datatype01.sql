@@ -104,7 +104,7 @@ values ('Laptop', 'Electric', '삼성 갤럭시 북4 노트북 프로', 'example
     : 소수점이 있는 숫자를 저장할 때 사용 
     > float, double, decimal 
     > float, double은 부동 소수점 방식
-    > decimal | numeric은 고정 소수점 방식 
+    > decimal은 고정 소수점 방식 
     
     a) float
 		: 소수점 아래 7자리까지 표현 
