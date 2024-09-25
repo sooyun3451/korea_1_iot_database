@@ -68,5 +68,3 @@ from
 	`members` M
     inner join `purchases` P 
     on M.member_id = P.member_id;
-
-
