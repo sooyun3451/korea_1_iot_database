@@ -20,7 +20,6 @@
     
     from > join > where > group by > having > select > order by > limit 
 */
-
 use `korea_db`;
 
 ##### 1. 기본 조회 #####
@@ -140,6 +139,52 @@ select * from `members`
 where 
 	name like '%un%'; 
     
+# 이름의 두 번째 글자가 u인 모든 회원 조회 
+select * from `members`
+where
+	name like '_u%';
 
+# 이름이 네글자인 모든 회원 조회 
+select * from `members`
+where
+	name like '____';
+    
+    
+# 날짜, 시간 조회 
+# date: 'YYYY-MM-DD'
+# time: 'HH:MM:SS'
 
-	
+# 특정 데이터와 일치하는 데이터 조회 
+select * from `members`
+where 
+	join_date = '2022-01-02';
+    
+# cf) 특정 시간 기준 그 이후의 데이터 조회 
+# 컬럼명 > 특정 시간 
+select * from `members`
+where
+	join_date > '2022-01-02';
+    
+# cf) 특정 시간 기준 그 이후의 데이터 조회 
+# between 키워드 사용 
+select * from `members`
+where
+	join_date between '2022-01-02' and '2024-01-23';
+    
+    
+# cf) 날짜나 시간의 특정 부분과 일치하는 데이터 조회 
+# 연도일치: year(컬럼명)
+# 월 일치: month(컬럼명)
+# 일 일치: day(컬럼명)
+select * from `members`
+where
+	year(join_date) = '2024';
+    
+# 시간일치: hour(), minute(), second()
+
+# 현재 날짜나 현재 시간을 기준으로 조회
+# curdate()
+# now()
+select * from `members`
+where
+	join_date < curdate();
