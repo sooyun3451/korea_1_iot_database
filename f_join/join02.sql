@@ -16,7 +16,7 @@
 
 # 1. left outer join
 # : 왼쪽 테이블의 모든 레코드와 오른쪽 테이블의 매칭되는 레코드만을 포함 
-
+# left outer join: 왼쪽 테이블의 내용은 모두 출력되어야 함!
 # 전체 회원에 대해 구매 기록(없더라도)을 출력 
 select 
 	M.member_id, M.name, P.product_code, M.area_code 
@@ -25,3 +25,25 @@ from
 		left outer join purchases P
         on M.member_id = P.member_id 
 order by M.member_id;
+
+
+# 2. right outer join예제 
+select 
+	M.member_id, M.name
+from 
+	purchases P
+    right outer join 
+    members M -- 오른쪽에 있는 회원 테이블을 기준으로 외부 조인 
+    on M.member_id = P.member_id
+order by M.member_id;
+
+
+# 3. 외부 조인 예제 
+select 
+	M.member_id, P.product_code, M.name, M.contact 
+from 
+	members M
+		left outer join purchases P
+        on M.member_id = P.member_id 
+where 
+	P.product_code is null;
