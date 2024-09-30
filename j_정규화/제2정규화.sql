@@ -12,7 +12,6 @@
 #	EX) 기본키가 복합키인 경우 그 중 일부 키에만 종속된다면 부분 종속 	
 
 use `정규화`;
-
 -- 부서 정보를 저장할 테이블 
 create table `departments`(
     department varchar(50) primary key, -- 기본키 
@@ -39,3 +38,8 @@ values
 	('e1', 'sales'),
     ('e2', 'sales'),
     ('e3', 'HR');
+    
+select E.employee_id, D.department, D.location, D.supervisor_id
+from employees E
+	join departments D
+    on E.department = D.department;
