@@ -14,5 +14,3 @@ create table if not exists Menu (
 );
 
 select * from Menu;
-
-drop table Menu;
